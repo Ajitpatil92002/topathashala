@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <pattern id="eduPattern" patternUnits="userSpaceOnUse" width="100" height="100">
+      <rect width="100" height="100" fill="#f9f9f9" />
+      
+      <!-- Book Icon -->
+      <g fill="#FF6347">
+        <rect x="20" y="20" width="20" height="15" />
+        <rect x="21" y="21" width="18" height="13" fill="#fff" />
+        <rect x="20" y="30" width="20" height="5" />
+      </g>
+      
+      <!-- Pencil Icon -->
+      <g fill="#FFD700">
+        <polygon points="65,15 75,25 70,30 60,20" />
+        <rect x="60" y="20" width="15" height="5" fill="#FF6347" />
+        <polygon points="60,20 62,18 73,29 71,31" fill="#FF6347" />
+      </g>
+      
+      <!-- Graduation Cap Icon -->
+      <g fill="#4682B4">
+        <polygon points="30,60 50,50 70,60 50,70" />
+        <rect x="48" y="60" width="4" height="15" />
+      </g>
+    </pattern>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="url(#eduPattern)" />
+</svg>
