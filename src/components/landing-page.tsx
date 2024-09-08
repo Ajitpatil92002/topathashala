@@ -30,6 +30,8 @@ import Image from "next/image"
 import { cn } from '@/lib/utils'
 import Reviews from './reviews'
 import Softwarecarousel from './carousel'
+import QuerySection from './query-form'
+import DownloadCom from './download'
 
 export default function LandingPage() {
   return (
@@ -143,36 +145,13 @@ function FeaturesSection() {
   </section>
 }
 
-function QuerySection() {
-  return <section id='query' className="container mx-auto px-4 py-20">
-    <h2 className="text-3xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Ask Us Anything</h2>
-    <form className="max-w-lg mx-auto">
-      <Input type="email" placeholder="Your Email" className="mb-4 bg-white bg-opacity-10 border-gray-600 text-white placeholder-gray-400" />
-      <Textarea placeholder="Your Question" className="mb-4 bg-white bg-opacity-10 border-gray-600 text-white placeholder-gray-400" />
-      <Button type="submit" className="w-full bg-purple-500 hover:bg-purple-600 text-white transition-colors duration-300">
-        <Send className="w-4 h-4 mr-2" />
-        Send Query
-      </Button>
-    </form>
-  </section>
-
-}
 
 function DownloadSection() {
   return <section className="bg-indigo-900 bg-opacity-50 py-20">
     <div className="container mx-auto px-4 text-center">
       <h2 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Download Our App</h2>
       <p className="mb-8 text-gray-300">Get the Topathshala app for iOS and Android</p>
-      <div className="flex flex-col sm:flex-row justify-center gap-4">
-        <Button className="bg-purple-500 hover:bg-purple-600 text-white transition-colors duration-300 transform hover:scale-105">
-          <Download className="w-4 h-4 mr-2" />
-          iOS App
-        </Button>
-        <Button className="bg-purple-500 hover:bg-purple-600 text-white transition-colors duration-300 transform hover:scale-105">
-          <Download className="w-4 h-4 mr-2" />
-          Android App
-        </Button>
-      </div>
+      <DownloadCom />
     </div>
   </section>
 }

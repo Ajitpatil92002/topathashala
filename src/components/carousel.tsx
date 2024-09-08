@@ -6,9 +6,6 @@ import { useEffect, useRef, useState } from "react";
 
 const Softwarecarousel = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [isScrolling, setIsScrolling] = useState(true);
-    const carouselRef = useRef<any>(null);
-
     const softwareImages = [
         {
             src: "https://drive.google.com/file/d/11McaUctzxXtogDzPC15k8MIPY52WQv7m/preview", // Replace with your Google Drive video link
@@ -30,42 +27,10 @@ const Softwarecarousel = () => {
         },
     ];
 
-    useEffect(() => {
-        const scrollCarousel = () => {
-            if (carouselRef.current && isScrolling) {
-                setCurrentSlide((prevSlide) => (prevSlide + 1) % softwareImages.length);
-            }
-        };
-
-        const carouselInterval = setInterval(scrollCarousel, 2000);
-
-        return () => {
-            clearInterval(carouselInterval);
-        };
-    }, [isScrolling, softwareImages.length]);
-
-    useEffect(() => {
-        const iframes = document.querySelectorAll('iframe');
-        const handlePlay = () => setIsScrolling(false);
-
-        iframes.forEach((iframe) => {
-            iframe.addEventListener('play', handlePlay);
-        });
-
-        return () => {
-            iframes.forEach((iframe) => {
-                iframe.removeEventListener('play', handlePlay);
-            });
-        };
-    }, [currentSlide]);
-
     return (
         <section className="container overflow-hidden mx-auto px-4 py-20">
             <div
                 className="relative"
-                ref={carouselRef}
-                onMouseEnter={() => setIsScrolling(false)}
-                onMouseLeave={() => setIsScrolling(true)}
             >
                 <div
                     className="flex transition-transform duration-500 ease-in-out"
@@ -73,9 +38,9 @@ const Softwarecarousel = () => {
                 >
                     {softwareImages.map((item, index) => (
                         <div key={index} className="w-full flex-shrink-0 relative">
-                            <div className="absolute top-40 md:top-0 text-center left-0 mx-auto w-full bg-black bg-opacity-50 text-white p-4">
-                                <h3 className="text-sm md:text-lg font-semibold">{item.title}</h3>
-                                <p className="text-sm">{item.description}</p>
+                            <div className="absolute z-40 top-32 md:top-0 text-center left-0 mx-auto w-full bg-black bg-opacity-50 text-white p-4">
+                                <h3 className="text-xs md:text-lg font-semibold">{item.title}</h3>
+                                <p className="text-xs md:text-sm">{item.description}</p>
                             </div>
                             {item.type === "image" ? (
                                 <Image
